@@ -47,7 +47,12 @@ import sys
 def count_words(filename):
     f =  open(filename)
     split = f.read().split()
-    counted = {i.lower(): split.count(i) for i in split}
+    counted = {}
+    for i in split:
+      if i.lower() not in counted:
+        counted[i.lower()] = 1
+      else:
+        counted[i.lower()] += 1
     return counted
     
 def print_words(filename):
